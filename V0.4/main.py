@@ -2,14 +2,14 @@
 import argparse
 import assembler as asm
 import processor as prcs
-import init
+import memory_manage as mem_mod
 
 def run(args):
     filename = args.input # these match the "dest": dest="input"
     output_filename = args.output # from dest="output"
     r_mode = args.mode
 
-    init._init_()
+    mem_mod._init_()
 
     if(r_mode=="asm"):
         if(filename==None):
