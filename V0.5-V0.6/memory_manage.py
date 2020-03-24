@@ -1,5 +1,9 @@
 global f,g
 
+def symtab_flush():
+    f = open("symtab","w")
+    f.close()
+
 def memw_unfold():
     global f
     f = open("memory","w")
@@ -95,6 +99,7 @@ def update_register(indx, datum):
     reg_fold()
 
 def _init_():
+    symtab_flush()
     memw_unfold()
     regw_unfold()
     init_memory()

@@ -3,8 +3,13 @@ import argparse
 import assembler as asm
 import processor as prcs
 import memory_manage as mem_mod
+import first_pass
+
+addressCounter = 3000
 
 def run(args):
+    global addressCounter
+
     filename = args.input # these match the "dest": dest="input"
     output_filename = args.output # from dest="output"
     r_mode = args.mode
@@ -19,6 +24,7 @@ def run(args):
                 line=input(">>>")
                 if(line not in ["quit()","q()","exit","quit"]):
                     try:
+                        addressCounter = first_pass.par(line, addressCounter)
                         imc=asm.parse(line)
                         print(imc)
                     except:
@@ -34,8 +40,10 @@ def run(args):
                     for line in f:
                         print("\n->line "+str(lc)+"\n")
                         try:
-                            imc=asm.parse(line)
-                            print(imc)
+                            if(line!="\n"):
+                                addressCounter = first_pass.par(line, addressCounter)
+                                imc=asm.parse(line)
+                                print(imc)
                         except Exception as e:
                             print("Syntax Error at line: "+str(lc)+": "+line+"\n"+str(e))
                             break
@@ -50,6 +58,7 @@ def run(args):
                     for line in f:
                         print("\n->line "+str(lc)+"\n")
                         try:
+                            addressCounter = first_pass.par(line, addressCounter)
                             imc=asm.parse(line)
                             fw.write(imc)
                         except:
