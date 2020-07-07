@@ -4,6 +4,7 @@ import assembler as asm
 import processor as prcs
 import memory_manage as mem_mod
 import first_pass
+import time
 
 addressCounter = 3000
 
@@ -19,7 +20,7 @@ def run(args):
     if(r_mode=="asm"):
         if(filename==None):
             run=True
-            print("\n-------------------------POWER Sim V0.1 Assembler Console----------------------\n")
+            print("\n-------------------------POWER Sim V0.6x Assembler Console----------------------\n")
             while(run):
                 line=input(">>>")
                 if(line not in ["quit()","q()","exit","quit"]):
@@ -31,6 +32,7 @@ def run(args):
                         print("Error thrown")
                 else:
                     run=False
+
         else:
             if(output_filename==None):
                 with open(filename, "r") as f:
@@ -58,9 +60,10 @@ def run(args):
                     for line in f:
                         print("\n->line "+str(lc)+"\n")
                         try:
-                            addressCounter = first_pass.par(line, addressCounter)
-                            imc=asm.parse(line)
-                            fw.write(imc)
+                            if(line!="\n"):
+                                addressCounter = first_pass.par(line, addressCounter)
+                                imc=asm.parse(line)
+                                fw.write(imc)
                         except:
                             print("Syntax Error at line: "+str(lc))
                             break
