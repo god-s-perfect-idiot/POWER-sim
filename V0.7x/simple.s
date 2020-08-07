@@ -12,8 +12,8 @@ second_value:
 _start:
 
         ld 16, 3000(0)
-        std 4, 0(3)
-        lwz 6, 0(5)
+        std 16, 3012(0)
+        lwz 6, 3000(0)
 
         lis 7, first_value@highest
         ori   7, 7, first_value@higher

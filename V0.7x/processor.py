@@ -121,7 +121,7 @@ def ld(line):
 	ds = int(line[16:30],2)
 	t1 = int(mem_man.read_register(ra),2)
 	disp = ds*4
-	ea = disp + t1
+	ea = int(disp) + int(t1)
 	datum1 = mem_man.read_memory(ea)
 	datum2 = mem_man.read_memory(ea+1)
 	datum3 = mem_man.read_memory(ea+2)
@@ -133,12 +133,35 @@ def ld(line):
 	data = datum8+datum7+datum6+datum5+datum4+datum3+datum2+datum1
 	mem_man.update_register(rt, data)
 
-
 def std(line):
-	pass
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:30],2)
+	t1 = int(mem_man.read_register(ra),2)
+	disp = ds*4
+	ea = disp + t1
+	data = mem_man.read_register(rs)
+	mem_man.update_memory(ea, data[-8:])
+	mem_man.update_memory(ea+1, data[-16:-8])
+	mem_man.update_memory(ea+2, data[-24:-16])
+	mem_man.update_memory(ea+3, data[-32:-24])
+	mem_man.update_memory(ea+4, data[-40:-32])
+	mem_man.update_memory(ea+5, data[-48:-40])
+	mem_man.update_memory(ea+6, data[-56:-48])
+	mem_man.update_memory(ea+7, data[-64:-56])
 
 def lwz(line):
-	pass
+	rt = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:32],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	datum1 = mem_man.read_memory(ea)
+	datum2 = mem_man.read_memory(ea+1)
+	datum3 = mem_man.read_memory(ea+2)
+	datum4 = mem_man.read_memory(ea+3)
+	data = datum4+datum3+datum2+datum1
+	mem_man.update_register(rt, data)
 
 def stw(line):
 	pass
@@ -163,3 +186,7 @@ def processline(line):
 		parse_xrelatives(line) #handle x,xs,xl etc
 	elif(PO == "111010"): #58 load double word
 		ld(line)
+	elif(PO == "111110"):
+		std(line)
+	elif(PO == "100000"):
+		lwz(line)

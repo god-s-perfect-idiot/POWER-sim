@@ -75,7 +75,7 @@ def update_memory(loc, datum):
 
 def update_register(indx, datum):
 
-    if(indx<0 or indx> 63):
+    if(indx<0 or indx> 32):
         raise ValueError
 
     datum = "0000000000000000000000000000000000000000000000000000000000000000"+datum
@@ -119,7 +119,7 @@ def read_memory(loc):
 
 def read_register(loc):
 
-    if(loc<0 or loc> 63):
+    if(loc<0 or loc> 32):
         raise ValueError
 
     regr_unfold()
