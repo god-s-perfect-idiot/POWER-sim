@@ -164,19 +164,55 @@ def lwz(line):
 	mem_man.update_register(rt, data)
 
 def stw(line):
-	pass
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:30],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	data = mem_man.read_register(rs)
+	mem_man.update_memory(ea, data[-8:])
+	mem_man.update_memory(ea+1, data[-16:-8])
+	mem_man.update_memory(ea+2, data[-24:-16])
+	mem_man.update_memory(ea+3, data[-32:-24])
 
 def lhz(line):
-	pass
+	rt = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:32],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	datum1 = mem_man.read_memory(ea)
+	datum2 = mem_man.read_memory(ea+1)
+	data = datum2+datum1
+	mem_man.update_register(rt, data)
 
 def sth(line):
-	pass
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:30],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	data = mem_man.read_register(rs)
+	mem_man.update_memory(ea, data[-8:])
+	mem_man.update_memory(ea+1, data[-16:-8])
 
 def lbz(line):
-	pass
+	rt = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:32],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	data = mem_man.read_memory(ea)
+	mem_man.update_register(rt, data)
 
 def stb(line):
-	pass
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ds = int(line[16:30],2)
+	t1 = int(mem_man.read_register(ra),2)
+	ea = ds + t1
+	data = mem_man.read_register(rs)
+	mem_man.update_memory(ea, data[-8:])
 
 
 def processline(line):
@@ -190,3 +226,13 @@ def processline(line):
 		std(line)
 	elif(PO == "100000"):
 		lwz(line)
+	elif(PO == "100100"):
+		stw(line)
+	elif(PO == "101000"):
+		lhz(line)
+	elif(PO == "101100"):
+		sth(line)
+	elif(PO == "100010"):
+		lbz(line)
+	elif(PO == "100110"):
+		stb(line)
