@@ -1,0 +1,5 @@
+address:3000	name:data	type:label
+address:3000	name:first_value	type:data
+address:3004	name:second_value	type:data
+address:3012	name:text	type:label
+address:3012	name:_start	type:label
