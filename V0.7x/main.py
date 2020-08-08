@@ -27,6 +27,7 @@ def run(args):
                     try:
                         addressCounter = first_pass.par(line, addressCounter)
                         imc=asm.parse(line)
+                        print(str(addressCounter)+"\t"+line.rstrip())
                         print(imc.strip())
                     except:
                         print("Error thrown")
@@ -43,7 +44,10 @@ def run(args):
                             if(line!="\n"):
                                 addressCounter = first_pass.par(line, addressCounter)
                                 imc=asm.parse(line)
-                                print(imc.strip())
+                                if(line.rstrip()!=""):
+                                    print(str(addressCounter)+"\t"+line.rstrip())
+                                if(imc.rstrip()!=""):
+                                    print(imc.strip())
                         except Exception as e:
                             print("Syntax Error at line: "+str(lc)+": "+line+"\n"+str(e))
                             break
