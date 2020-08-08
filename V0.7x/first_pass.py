@@ -25,7 +25,7 @@ def par(line, addressCounter):
                 break
             else:
                 inst=inst+ch
-        print(str(addressCounter)+"\t"+inst)
+        print(str(addressCounter)+"\t"+inst.rstrip())
         addressCounter+=4;
 
     return addressCounter

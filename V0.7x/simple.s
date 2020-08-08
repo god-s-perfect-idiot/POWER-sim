@@ -25,6 +25,7 @@ _start:
 
         #Load in first value to register 4, from the address we just loaded
         ld 4, 0(7)
+        ba 3004
 
         #Load in the address of the second value
         lis 7, second_value@highest
@@ -33,6 +34,7 @@ _start:
         oris 7, 7, second_value@h
         ori 7, 7, second_value@l
 
+there:
         #Load in the second value to register 5, from the address we just loaded
         ld 5, 0(7)
 

@@ -16,6 +16,8 @@ def parse(line):
 	xoformlist=["add","subf"]
 	x3optype1=["and","extsw","nand","or","xor","sld","srd","srad"]	#instruction in X-form with 3 register operands
 	xo3op=["add","subf"] #xo-form instructions with 3 register operands
+	ucbranchlist=["b","ba","bl","bla"]
+	cbranchlist=["bc","bca","bcl","bcla"]
 	xo_dictionary={"and":28,"extsw":986,"nand":476,"or":444,"xor":316,"sld":27,"srd":539,"srad":794,"add":266,"subf":40}	#extended opcode dictionary
 	tokens=[];
 	tokens=re.split(r"[, ] *",line)
@@ -135,5 +137,37 @@ def parse(line):
 		ra = "00000"+bin(int(arg2[1][:-1]))[2:]
 		ra = ra[-5:]
 		hexword += rs+ra+ds
+	elif(inst in ucbranchlist):
+		op = "000000"+bin(18)[2:]
+		op = op[-6:]
+		ll = "000000000000000000000000"+bin(int(tokens[1]))[2:]
+		ll = ll[-24:]
+		hexword = op+ll
+		if(inst == "b"):
+			hexword+="00"
+		elif(inst == "ba"):
+			hexword+="10"
+		elif(inst == "bl"):
+			hexword+="01"
+		elif(inst == "bla"):
+			hexword+="11"
+	elif(inst in cbranchlist):
+		op = "000000"+bin(16)[2:]
+		op = op[-6:]
+		bo = "00000"+bin(int(tokens[1]))[2:]
+		bo = bo[-5:]
+		bi = "00000"+bin(int(tokens[2]))[2:]
+		bi = bi[-5:]
+		ll = "00000000000000"+bin(int(tokens[3]))[2:]
+		ll = ll[-14:]
+		hexword = op+bo+bi+ll
+		if(inst == "bc"):
+			hexword+="00"
+		elif(inst == "bca"):
+			hexword+="10"
+		elif(inst == "bcl"):
+			hexword+="01"
+		elif(inst == "bcla"):
+			hexword+="11"
 
 	return hexword

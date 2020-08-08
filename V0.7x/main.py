@@ -27,7 +27,7 @@ def run(args):
                     try:
                         addressCounter = first_pass.par(line, addressCounter)
                         imc=asm.parse(line)
-                        print(imc)
+                        print(imc.strip())
                     except:
                         print("Error thrown")
                 else:
@@ -38,12 +38,12 @@ def run(args):
                 with open(filename, "r") as f:
                     lc=1
                     for line in f:
-                        print("\n->line "+str(lc)+"\n")
+                        print("->line "+str(lc))
                         try:
                             if(line!="\n"):
                                 addressCounter = first_pass.par(line, addressCounter)
                                 imc=asm.parse(line)
-                                print(imc)
+                                print(imc.strip())
                         except Exception as e:
                             print("Syntax Error at line: "+str(lc)+": "+line+"\n"+str(e))
                             break
@@ -53,7 +53,7 @@ def run(args):
                     lc=1
                     fw=open(output_filename,"w")
                     for line in f:
-                        print("\n->line "+str(lc)+"\n")
+                        print("->line "+str(lc))
                         try:
                             if(line!="\n"):
                                 addressCounter = first_pass.par(line, addressCounter)
@@ -84,7 +84,7 @@ def run(args):
                 with open(filename, "r") as f:
                     lc=1
                     for line in f:
-                        print("\n->line "+str(lc)+"\n")
+                        print("->line "+str(lc))
                         try:
                             if(line!="\n"):
                                 addressCounter = first_pass.par(line, addressCounter)
@@ -99,7 +99,7 @@ def run(args):
                     lc=1
                     fw=open(output_filename,"w")
                     for line in f:
-                        print("\n->line "+str(lc)+"\n")
+                        print("->line "+str(lc))
                         try:
                             if(line!="\n"):
                                 addressCounter = first_pass.par(line, addressCounter)
