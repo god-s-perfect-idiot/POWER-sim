@@ -4,92 +4,206 @@ import memory_manage as mem_man
 def instruction_and(line):	# process "and"
 	instruction="And";
 	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	action=op1+"<- ("+op2+") AND ("+op3+")"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("Rc: "+rctemp)
+	op1="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	for i in range(64):
+		if(op2[i]=='0' or op3[i]=='0'):
+			op1=op1+"0";
+		else:
+			op1=op1+"1";
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction);
+	#print("Operands: "+op1+","+op2+","+op3);
+	#print("Action: "+action);
+	#print("Rc: "+rctemp);
 
 def instruction_nand(line):
 	instruction="Nand";
 	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	action=op1+"<- ("+op2+") NAND ("+op3+")"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("Rc: "+rctemp)
+	op1="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	for i in range(64):
+		if(op2[i]=='0' or op3[i]=='0'):
+			op1=op1+"1";
+		else:
+			op1=op1+"0";
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction)
+	#print("Operands: "+op1+","+op2+","+op3)
+	#print("Action: "+action)
+	#print("Rc: "+rctemp)
 
 def instruction_or(line):
 	instruction="Or";
 	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	action=op1+"<- ("+op2+") OR ("+op3+")"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("Rc: "+rctemp)
+	op1="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	for i in range(64):
+		if(op2[i]=='1' or op3[i]=='1'):
+			op1=op1+"1";
+		else:
+			op1=op1+"0";
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction)
+	#print("Operands: "+op1+","+op2+","+op3)
+	#print("Action: "+action)
+	#print("Rc: "+rctemp)
 
 def instruction_xor(line):
 	instruction="Xor";
 	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	action=op1+"<- ("+op2+") XOR ("+op3+")"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("Rc: "+rctemp)
+	op1="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	for i in range(64):
+		if(op2[i]==op3[i]):
+			op1=op1+"0";
+		else:
+			op1=op1+"1";
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction)
+	#print("Operands: "+op1+","+op2+","+op3)
+	#print("Action: "+action)
+	#print("Rc: "+rctemp)
 
 
 def instruction_add(line):
 	instruction="Add";
-	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	OEtemp=line[21]
-	action=op1+"<- ("+op2+") + ("+op3+")"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("OE: "+OEtemp)
-	print("Rc: "+rctemp)
+	op1="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	op1=bin(int(op2,2)+int(op3,2))[2:];
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction)
+	#print("Operands: "+op1+","+op2+","+op3)
+	#print("Action: "+action)
+	#print("OE: "+OEtemp)
+	#print("Rc: "+rctemp)
 
 
 def instruction_subf(line):
 	instruction="subf";
 	#extracting operands
-	op1="R"+str(int(line[6:11],2));
-	op2="R"+str(int(line[11:16],2));
-	op3="R"+str(int(line[16:21],2));
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
 	rctemp=line[31];
-	OEtemp=line[21]
-	action=op1+"<- ("+op2+")` + ("+op3+") + 1  (` denotes 1's complement)"
+	#action=op1+"<- ("+op2+") AND ("+op3+")"
 	#print details
-	print("Instruction: "+instruction)
-	print("Operands: "+op1+","+op2+","+op3)
-	print("Action: "+action)
-	print("OE: "+OEtemp)
-	print("Rc: "+rctemp)
+	op1="";
+	temp="";
+	op2=mem_man.read_register(opind2);
+	op3=mem_man.read_register(opind3);
+	for i in range(64):
+		if(op2[i]=="0"):
+			temp=temp+"1";
+		else:
+			temp=temp+"0";
+	op2=temp;
+	op1=bin(int(op2,2)+int(op3,2)+int("1",2))[2:];
+	mem_man.update_register(opind1,op1);
+	#print("Instruction: "+instruction)
+	#print("Operands: "+op1+","+op2+","+op3)
+	#print("Action: "+action)
+	#print("OE: "+OEtemp)
+	#print("Rc: "+rctemp)
+
+def instruction_sld(line):
+	instruction="sld";
+	#extracting operands
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
+	rctemp=line[31];
+
+	op1=mem_man.read_register(opind1);
+	op3=mem_man.read_register(opind3);
+	n=int(op3[-7:],2);
+	op2=op1[n:];
+	for i in range(n):
+		op2=op2+"0";
+	mem_man.update_register(opind2,op2)
+
+def instruction_srd(line):
+	instruction="srd";
+	#extracting operands
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
+	rctemp=line[31];
+
+	op1=mem_man.read_register(opind1);
+	op3=mem_man.read_register(opind3);
+	n=int(op3[-7:],2);
+	op2="";
+	for i in range(n):
+		op2=op2+"0";
+	op2=op2+op1[:-n]
+	mem_man.update_register(opind2,op2)
+def instruction_srad(line):
+	instruction="srad";
+	#extracting operands
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	opind3=int(line[16:21],2);
+	rctemp=line[31];
+
+	op1=mem_man.read_register(opind1);
+	op3=mem_man.read_register(opind3);
+	n=int(op3[-7:],2);
+	op2="";
+	filler=op1[0]
+	for i in range(n):
+		op2=op2+filler;
+	op2=op2+op1[:-n]
+	mem_man.update_register(opind2,op2)
+
+def instruction_extsw(line):
+	instruction="srad";
+	#extracting operands
+	opind1=int(line[6:11],2);
+	opind2=int(line[11:16],2);
+	rctemp=line[31];
+	op1=mem_man.read_register(opind1);
+	filler=op1[32];
+	op2="";
+	for i in range(32):
+		op2=op2+filler;
+	op2=op2+op1[32:]
+	mem_man.update_register(opind2,op2)
 
 
 def parse_xrelatives(line):#handle x,xs,xl etc
@@ -106,6 +220,14 @@ def parse_xrelatives(line):#handle x,xs,xl etc
 		instruction_or(line)
 	elif(ext_opcode_x=="0100111100"):
 		instruction_xor(line)
+	elif(ext_opcode_x=="0000011011"): #27
+		instruction_sld(line)
+	elif(ext_opcode_x=="1000011011"): #539
+		instruction_srd(line)
+	elif(ext_opcode_x=="1100011010"): #794
+		instruction_srad(line)
+	elif(ext_opcode_x=="1111011010"): #986
+		instruction_extsw(line)
 
 
 	#handling XO
@@ -214,6 +336,21 @@ def stb(line):
 	data = mem_man.read_register(rs)
 	mem_man.update_memory(ea, data[-8:])
 
+def andi(line):
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ui = int(line[16:32],2)
+	t1 = int(mem_man.read_register(rs)[-16:],2)
+	t2 = str(t1 & ui)
+	mem_man.update_register(ra, t2)
+
+def xori(line):
+	rs = int(line[6:11],2)
+	ra = int(line[11:16],2)
+	ui = int(line[16:32],2)
+	t1 = int(mem_man.read_register(rs)[-16:],2)
+	t2 = str(t1 ^ ui)
+	mem_man.update_register(ra, t2)
 
 def processline(line):
 	PO=line[:6]
@@ -236,3 +373,7 @@ def processline(line):
 		lbz(line)
 	elif(PO == "100110"):
 		stb(line)
+	elif(PO == "011100"):
+		andi(line)
+	elif(PO == "011010"):
+		xori(line)

@@ -95,7 +95,7 @@ def run(args):
                                 imc=asm.parse(line)
                                 prcs.processline(imc)
                         except Exception as e:
-                            print("Syntax Error at line: "+str(lc)+": "+line+"\n"+str(e))
+                            print("Syntax Error at line: "+str(lc)+": "+str(line)+"\n"+str(e))
                             break
                         lc+=1
             else:

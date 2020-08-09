@@ -15,6 +15,7 @@ def parse(line):
 	xformlist63=[]	#instructions in X-form that has 63 as Primary Opcode
 	xoformlist=["add","subf"]
 	x3optype1=["and","extsw","nand","or","xor","sld","srd","srad"]	#instruction in X-form with 3 register operands
+	x2optype1=["extsw"] #x-form instructions with 2 register operands
 	xo3op=["add","subf"] #xo-form instructions with 3 register operands
 	ucbranchlist=["b","ba","bl","bla"]
 	cbranchlist=["bc","bca","bcl","bcla"]
@@ -35,6 +36,13 @@ def parse(line):
 				r1=getregnum(tokens[1])
 				r2=getregnum(tokens[2])
 				r3=getregnum(tokens[3])
+				hexword=hexword+r1+r2+r3
+			hexword=hexword+"{0:010b}".format(xo_dictionary[inst])
+		if(no_of_operands==2):
+			if(inst in x2optype1):
+				r1=getregnum(tokens[1])
+				r2=getregnum(tokens[2])
+				r3="00000"
 				hexword=hexword+r1+r2+r3
 			hexword=hexword+"{0:010b}".format(xo_dictionary[inst])
 		if(tokens[0][-1]=="."):		#To check if Rc bit is to be set or not
@@ -169,5 +177,27 @@ def parse(line):
 			hexword+="01"
 		elif(inst == "bcla"):
 			hexword+="11"
+	elif(inst == "andi"):
+		op = "000000"+bin(28)[2:]
+		op = op[-6:]
+		hexword += op
+		ra = "00000"+bin(int(tokens[1]))[2:]
+		ra = ra[-5:]
+		rs = "00000"+bin(int(tokens[2]))[2:]
+		rs = rs[-5:]
+		ui = "0000000000000000"+bin(int(tokens[3]))[2:]
+		ui = ui[-16:]
+		hexword += rs+ra+ui
+	elif(inst == "xori"):
+		op = "000000"+bin(26)[2:]
+		op = op[-6:]
+		hexword += op
+		ra = "00000"+bin(int(tokens[1]))[2:]
+		ra = ra[-5:]
+		rs = "00000"+bin(int(tokens[2]))[2:]
+		rs = rs[-5:]
+		ui = "0000000000000000"+bin(int(tokens[3]))[2:]
+		ui = ui[-16:]
+		hexword += rs+ra+ui
 
 	return hexword

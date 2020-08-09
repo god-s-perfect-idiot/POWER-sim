@@ -15,6 +15,9 @@ _start:
         std 16, 3012(0)
         lwz 6, 3000(0)
 
+        andi 4, 16, 4000
+        xori 5, 16, 6200
+
         lis 7, first_value@highest
         ori   7, 7, first_value@higher
         #Shift these up to the high-order bits
