@@ -1,14 +1,20 @@
-# POWER-sim
-POWER ISA simulator
+# POWERSIM
 
-An open-source cross platform POWER ISA simulator. 
+An open-source cross platform POWER ISA simulator.
 
-Windows: 
-  Now has an executable binary. Compile make file (setup_windows.py) to get executable.
- 
-Linux:
-  Execute main.py or gui.py, whichever you require.
-  
- 
-Dependencies:
-  -argparse
+### Launch Modes:
+
+- CLI Mode:
+run:
+`main.py -m operation mode -i input file -o output file`
+input and output files are optional
+
+- GUI Mode:
+Compile the script:
+`setup_windows.py`
+run the command:
+```
+python3 setup_windows.py build
+```
+or Run `gui.py`
+
