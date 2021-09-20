@@ -11,10 +11,10 @@ input and output files are optional
 
 - GUI Mode:
 Compile the script:
-`setup_windows.py`
+`generate_windows_exec.py`
 run the command:
 ```
-python3 setup_windows.py build
+python3 generate_windows_exec.py build
 ```
 or Run `gui.py`
 
