@@ -18,3 +18,6 @@ python3 setup_windows.py build
 ```
 or Run `gui.py`
 
+
+### Documentation
+- Please check out [documentation.md](https://github.com/god-s-perfect-idiot/POWER-sim/blob/master/documentation.md)
