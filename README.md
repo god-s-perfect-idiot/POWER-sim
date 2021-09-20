@@ -6,7 +6,7 @@ An open-source cross platform POWER ISA simulator.
 
 - CLI Mode:
 run:
-`main.py -m operation mode -i input file -o output file`
+`launchers/cli.py -m operation mode -i input file -o output file`
 input and output files are optional
 
 - GUI Mode:
