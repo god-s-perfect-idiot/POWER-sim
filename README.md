@@ -20,4 +20,4 @@ or Run `gui.py`
 
 
 ### Documentation
-- Please check out documentation.md
+- Please check out [documentation.md](https://github.com/god-s-perfect-idiot/POWER-sim/blob/master/documentation.md)
