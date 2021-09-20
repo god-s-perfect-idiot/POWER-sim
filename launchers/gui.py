@@ -1,3 +1,9 @@
+import sys
+
+sys.path.insert(1, '../asm-proc/')
+sys.path.insert(1, '../simulated-storage/')
+sys.path.insert(1, '../pass-handlers/')
+
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 import assembler as asm

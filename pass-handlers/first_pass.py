@@ -1,3 +1,7 @@
+import sys
+
+sys.path.insert(1, '../asm-proc/')
+
 import asm_dir as directive_handler
 
 def symtab_append(line):

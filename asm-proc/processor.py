@@ -1,3 +1,7 @@
+
+import sys
+
+sys.path.insert(1, '../simulated-storage/')
 import memory_manage as mem_man
 
 #line is 32bit binary string eg "01111100001001010100001001111000"

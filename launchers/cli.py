@@ -1,4 +1,10 @@
 #! /usr/bin/env python3
+import sys
+
+sys.path.insert(1, '../asm-proc/')
+sys.path.insert(1, '../simulated-storage/')
+sys.path.insert(1, '../pass-handlers/')
+
 import argparse
 import assembler as asm
 import processor as prcs
