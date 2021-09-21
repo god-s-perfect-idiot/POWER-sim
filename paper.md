@@ -83,28 +83,58 @@ development.
 
 - clone the repo
 
-`git clone git@github.com:god-s-perfect-idiot/POWER-sim.git`
+```
+git clone git@github.com:god-s-perfect-idiot/POWER-sim.git
+```
 - install dependency packages
 ```
 pip install argparse csx_Freeze tk
 ```
 - generate executable package on windows if needed (Optional)
 
-`python3 generate_windows_exec.py build`
+```
+python3 generate_windows_exec.py build
+```
 - Launch modes: 
   - Run /build/gui.exe file for executing POWERSim
   - run gui.py for gui mode
 
-  `python3 launchers/gui.py`
+  ```
+  python3 launchers/gui.py
+  ```
   - run cli.py for cli mode 
 
-  `python3 launchers/cli.py -m [MODE] -i? [input] -o? [output]`
+  ```
+  python3 launchers/cli.py -m [MODE] -i? [input] -o? [output]
+  ```
   
  ## Dependencies
  
  - argparse 
  - Tkinter
  - cx_Freeze
+
+# Example Usage
+
+POWERsim has two different launch modes for accessing the application. 
+- The GUI mode launches an interactive session where the user can switch between 
+assembly and processor modes. The interactive console provides compiled binary
+results and the memory devies and symtabs will be viewable as well.
+
+GUI: 
+
+![Capture](https://user-images.githubusercontent.com/33544311/134208538-515e1d31-5ea7-4245-97e7-5fbbce6aa15c.JPG)
+
+- The CLI mode is exclusive to an execution mode and is capable of executing
+or assembling instructions. It can also accept an input and output file.
+
+An example use case is as follows: 
+
+![V0 6](https://user-images.githubusercontent.com/33544311/134208458-07c5d05d-cb32-442d-b6ba-b791fbfdedb0.PNG)
+
+# Functionality Documentation
+
+
 
 # Mathematics
 
