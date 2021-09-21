@@ -134,7 +134,33 @@ An example use case is as follows:
 
 # Functionality Documentation
 
+POWERsim has two launch options: A GUI mode and a CLI mode. Both have their own 
+different usages and interfaces. 
 
+## CLI Mode:
+Launch CLI mode using the following command:
+```
+cd launchers
+python3 cli.py -m [OPERATION MODE] -i [INPUT FILE] -o [OUTPUT FILE]
+```
+- Here, -m accepts two values. 
+
+The two operation modes are Assembler mode and Processor Mode. 
+
+#### Assembler Mode:
+Assembles instructions and returns the binary value of the instruction
+
+#### Processor Mode:
+Processes instruction. Assembles first and then executes the instruction. 
+
+- The usage of -i is to provide an input file. 
+
+Any file of the type .s that contains input instructions can be assembled/
+processed. 
+
+- The usage of -o is to provide an output file.
+
+The response of the execution is stores there. 
 
 # Mathematics
 
