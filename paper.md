@@ -16,9 +16,9 @@ authors:
   - name: Adithya G^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0002-7646-4042
     affiliation: 1
-  - name: Mohammed Siyad B^[corresponding author]
+  - name: Mohammed Siyad B^[project guide]
     affiliation: 2
-  - name: Basavaraj Talavar^[corresponding author]
+  - name: Basavaraj Talavar^[project guide]
     affiliation: 3
 affiliations:
  - name: B. Tech Final year Student, TKM College of Engineering, Kollam
@@ -41,29 +41,40 @@ ISA, created by the mergers of the core `PowerPC ISA` and the optional `Book E`
 for embedded applications. POWER ISA was made open source by IBM in August 
 2019. POWER9 is the latest version of POWER ISA. POWER9 is a family of 
 superscalar, multi-threading, symmetric multiprocessors based on the Power 
-ISA.
+ISA. Power ISA isa RISC load/store architecture. It has multiple sets of registers.
+Instructions have a length of 32 bits, with the exception of the VLE (variable-length
+encoding) subset. Most instructions are triadic. Memory operations are strictly  
+load/store, but allow for out-of-order execution. Power ISA has been an industry 
+standard for Open Coherent Accelerator Processor Interface (OpenCAPI) and Open 
+Memory Interface (OMI) architecture-agnostic compute accelerators, or accelerators
+in general. With OpenPOWER joiningthe linux foundation, the need for an open 
+source hardware-independent POWER ISA simulator has also come up.
 
 # Statement of need
 
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
+The main goal of the proposed project is to develop a platform independent,
+open source POWER ISA functional simulator with minimal hardware requirements
+and aims to provide a virtual environment capable of simulating a reduced POWER
+ISA and associated operations. The simulator will greatly help in developing 
+POWER ISA based solutions by simulating a virtual environment. It also serves 
+as a teaching and learning tool for better understanding POWER ISA and how it 
+works. The educational aspect of the simulator is very significant as most of 
+the open source ISAs have a very powerful simulators associated with it. Such a 
+simulator further enables research and advancement in POWER ISA. The proposed 
+tool will simulate POWER ISA as well as provide register and memory access.
 
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.
+
+We aim to build a system to simulate POWER ISA architecture on a software layer
+which does not rely on a programmed hardware component. This platform independent
+approach aims at providing software to help learn as well as  develop  POWER  ISA
+based applications. With the rise in popularity of hardware accelerators in modern
+applications, an ISA simulator for the said architecture would create an environment
+where the applications can be tested before being deployed to specially designed FPGA
+chips or Hardware components for the acceleration. The process consists of two phases,
+the Assembler development and the Processor Development. The Assembler converts
+instructions to Hex code, handles assembler directives and comments and is a two 
+pass assembler. The Processor simulates instruction execution and executes using a
+python based processor. We use Argparse for CLI and Tkinter for GUI development.
 
 # Mathematics
 
