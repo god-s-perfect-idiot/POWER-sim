@@ -53,7 +53,7 @@ source hardware-independent POWER ISA simulator has also come up.
 # Statement of need
 
 The main goal of the proposed project is to develop a platform independent,
-open source POWER ISA functional simulator with minimal hardware requirements
+open source `POWER ISA functional simulator` with minimal hardware requirements
 and aims to provide a virtual environment capable of simulating a reduced POWER
 ISA and associated operations. The simulator will greatly help in developing 
 POWER ISA based solutions by simulating a virtual environment. It also serves 
@@ -74,7 +74,8 @@ chips or Hardware components for the acceleration. The process consists of two p
 the Assembler development and the Processor Development. The Assembler converts
 instructions to Hex code, handles assembler directives and comments and is a two 
 pass assembler. The Processor simulates instruction execution and executes using a
-python based processor. We use Argparse for CLI and Tkinter for GUI development.
+python based processor. We use `Argparse` for CLI and `Tkinter` and `cx_Freeze` for GUI
+development. 
 
 # Mathematics
 
