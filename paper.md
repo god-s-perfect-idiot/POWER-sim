@@ -14,7 +14,7 @@ authors:
     orcid: 0000-0002-7646-4042
     affiliation: 1
   - name: Adithya G^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0002-7646-4042
+    orcid: 0000-0001-7395-2481
     affiliation: 1
   - name: Mohammed Siyad B^[project guide]
     affiliation: 2
@@ -76,6 +76,31 @@ instructions to Hex code, handles assembler directives and comments and is a two
 pass assembler. The Processor simulates instruction execution and executes using a
 python based processor. We use `Argparse` for CLI and `Tkinter` and `cx_Freeze` for GUI
 development. 
+
+# Installation Instructions
+
+## Installation
+
+- clone the repo
+`git clone git@github.com:god-s-perfect-idiot/POWER-sim.git`
+- install dependency packages
+```
+pip install argparse csx_Freeze tk
+```
+- generate executable package on windows if needed (Optional)
+`python3 generate_windows_exec.py build`
+- Launch modes: 
+  - Run /build/gui.exe file for executing POWERSim
+  - run gui.py for gui mode
+  `python3 launchers/gui.py`
+  - run cli.py for cli mode 
+  `python3 launchers/cli.py -m [MODE] -i? [input] -o? [output]`
+  
+ ## Dependencies
+ 
+ - argparse 
+ - Tkinter
+ - cx_Freeze
 
 # Mathematics
 
