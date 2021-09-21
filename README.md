@@ -18,6 +18,10 @@ python3 generate_windows_exec.py build
 ```
 or Run `gui.py`
 
+### Dependencies:
+- Argparse (CLI framework for Python)
+- cx_Freeze (executable generation)
+- Tkiner (GUI Development)
 
 ### Documentation
 - Please check out [documentation.md](https://github.com/god-s-perfect-idiot/POWER-sim/blob/master/documentation.md)
