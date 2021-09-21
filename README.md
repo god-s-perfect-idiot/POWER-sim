@@ -1,4 +1,4 @@
-<h1 align='center'>POWERSIM<h1>
+<h1 align='center'>POWERSIM</h1>
 
 An open-source cross platform POWER ISA simulator.
 
