@@ -1,6 +1,6 @@
 <h1 align='center'>POWERSIM</h1>
 
-An open-source cross platform POWER ISA simulator.
+An open-source cross platform nanoPOWER ISA functional simulator.
 
 ### Launch Modes:
 
