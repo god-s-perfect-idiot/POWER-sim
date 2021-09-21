@@ -160,7 +160,7 @@ processed.
 
 - The usage of -o is to provide an output file.
 
-The response of the execution is stores there. 
+The response of the execution is stored there in the output file. 
 
 # Mathematics
 
