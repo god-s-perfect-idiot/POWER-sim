@@ -82,18 +82,22 @@ development.
 ## Installation
 
 - clone the repo
+
 `git clone git@github.com:god-s-perfect-idiot/POWER-sim.git`
 - install dependency packages
 ```
 pip install argparse csx_Freeze tk
 ```
 - generate executable package on windows if needed (Optional)
+
 `python3 generate_windows_exec.py build`
 - Launch modes: 
   - Run /build/gui.exe file for executing POWERSim
   - run gui.py for gui mode
+
   `python3 launchers/gui.py`
   - run cli.py for cli mode 
+
   `python3 launchers/cli.py -m [MODE] -i? [input] -o? [output]`
   
  ## Dependencies
