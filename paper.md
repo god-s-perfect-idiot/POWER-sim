@@ -74,7 +74,7 @@ chips or Hardware components for the acceleration. The process consists of two p
 the Assembler development and the Processor Development. The Assembler converts
 instructions to Hex code, handles assembler directives and comments and is a two 
 pass assembler. The Processor simulates instruction execution and executes using a
-python[@pythonlibs] based processor. We use `Argparse`[@cpython] for CLI and `Tkinter`[@cpython] and `cx_Freeze`@[cx_Freeze] for GUI
+python[@pythonlibs] based processor. We use `Argparse`[@cpython] for CLI and `Tkinter`[@cpython] and `cx_Freeze`[@cx_Freeze] for GUI
 development. 
 
 # Installation Instructions
