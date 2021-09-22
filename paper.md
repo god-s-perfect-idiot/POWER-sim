@@ -10,10 +10,10 @@ authors:
   - name: Samar Musthafa^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0003-2213-8820
     affiliation: 1
-  - name: Mathew Joseph K^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Mathew Joseph Kayyalackakom^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0002-7646-4042
     affiliation: 1
-  - name: Adithya G^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Adithya Gopakumar^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0001-7395-2481
     affiliation: 1
   - name: Mohammed Siyad B^[project guide]
@@ -41,13 +41,13 @@ ISA, created by the mergers of the core `PowerPC ISA` and the optional `Book E`
 for embedded applications. POWER ISA was made open source by IBM in August 
 2019. POWER9 is the latest version of POWER ISA. POWER9 is a family of 
 superscalar, multi-threading, symmetric multiprocessors based on the Power 
-ISA. Power ISA isa RISC load/store architecture. It has multiple sets of registers.
+ISA. Power ISA is a RISC load/store architecture. It has multiple sets of registers.
 Instructions have a length of 32 bits, with the exception of the VLE (variable-length
 encoding) subset. Most instructions are triadic. Memory operations are strictly  
 load/store, but allow for out-of-order execution. Power ISA has been an industry 
 standard for Open Coherent Accelerator Processor Interface (OpenCAPI) and Open 
 Memory Interface (OMI) architecture-agnostic compute accelerators, or accelerators
-in general. With OpenPOWER joiningthe linux foundation, the need for an open 
+in general. With OpenPOWER joining the linux foundation, the need for an open 
 source hardware-independent POWER ISA simulator has also come up.
 
 # Statement of need
@@ -202,7 +202,7 @@ expanded upon in future updates.
 
 # Acknowledgements
 
-We acknowledge contributions from Samar Musthafa, Mathew Joseph K and 
+We acknowledge contributions from Samar Musthafa, Mathew Joseph Kayyalackakom and 
 Adithya Gopakumar during the development of the project. Our guides, Prof. Mohammad
 Siyad B and Prof. Basavaraj Talavar also played significant roles during 
 the ideation and subsequent development reviews of the project. 
