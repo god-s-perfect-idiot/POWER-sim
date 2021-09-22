@@ -207,4 +207,10 @@ Adithya Gopakumar during the development of the project. Our guides, Prof. Moham
 Siyad B and Prof. Basavaraj Talavar also played significant roles during 
 the ideation and subsequent development reviews of the project. 
 
+# Contributions
+
+We welcome all types of contributions, either code fixes, new features or doc 
+improvements. For commits please follow conventional commits convention. All 
+code must pass lint rules before it can be merged into main.
+
 # References
