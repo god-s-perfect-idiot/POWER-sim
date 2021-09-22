@@ -162,6 +162,39 @@ processed.
 
 The response of the execution is stored there in the output file. 
 
+## GUI Mode:
+Launch GUI using the Python script or generated windows exectuable. 
+```
+# script
+cd launchers/
+python3 gui.py
+
+#generated exe
+python3 generate_windows_exec.py build
+# file is in /build
+```
+GUI Mode has the following sections: 
+
+#### Live console:
+Assemble or process the given instruction and print the response in the
+console
+
+#### Assemble-Process switch:
+Switch between assembly and process modes
+
+#### Symtab/Memory view:
+Show the contents of the Symbol Table and the Memory
+
+#### Memory/Symtab switcher:
+Button to toggle between either devices
+
+#### Register View:
+Display content of the register.
+
+#### Load an external File using the File Menu. 
+
+For detailed per-method documentation, please refer to [documentation.md](https://github.com/god-s-perfect-idiot/POWER-sim/blob/master/documentation.md)
+
 # Mathematics
 
 Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
