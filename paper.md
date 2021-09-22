@@ -34,7 +34,7 @@ bibliography: paper.bib
 
 # Summary
 
-The `Power ISA` is an instruction set architecture (ISA) developed by the 
+The `Power ISA`[@manual] is an instruction set architecture (ISA) developed by the 
 `OpenPOWER Foundation`, led by `IBM`. It was originally developed by the now 
 defunct `Power.org` industry group. Power ISA is an evolution of the PowerPC
 ISA, created by the mergers of the core `PowerPC ISA` and the optional `Book E` 
@@ -74,7 +74,7 @@ chips or Hardware components for the acceleration. The process consists of two p
 the Assembler development and the Processor Development. The Assembler converts
 instructions to Hex code, handles assembler directives and comments and is a two 
 pass assembler. The Processor simulates instruction execution and executes using a
-python based processor. We use `Argparse` for CLI and `Tkinter` and `cx_Freeze` for GUI
+python[@pythonlibs] based processor. We use `Argparse`[@cpython] for CLI and `Tkinter`[@cpython] and `cx_Freeze`@[cx_Freeze] for GUI
 development. 
 
 # Installation Instructions
