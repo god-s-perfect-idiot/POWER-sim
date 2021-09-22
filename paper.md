@@ -203,7 +203,7 @@ expanded upon in future updates.
 # Acknowledgements
 
 We acknowledge contributions from Samar Musthafa, Mathew Joseph K and 
-Adithya G during the development of the project. Our guides, Prof. Mohammad
+Adithya Gopakumar during the development of the project. Our guides, Prof. Mohammad
 Siyad B and Prof. Basavaraj Talavar also played significant roles during 
 the ideation and subsequent development reviews of the project. 
 
