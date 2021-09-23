@@ -35,43 +35,43 @@ bibliography: paper.bib
 # Summary
 
 The `Power ISA`[@manual] is an instruction set architecture (ISA) developed by the 
-`OpenPOWER Foundation`, led by `IBM`. It was originally developed by the now 
-defunct `Power.org` industry group. Power ISA is an evolution of the PowerPC
+`OpenPOWER Foundation`, led by `IBM`. Power ISA is an evolution of the PowerPC
 ISA, created by the mergers of the core `PowerPC ISA` and the optional `Book E` 
 for embedded applications. POWER ISA was made open source by IBM in August 
-2019. POWER9 is the latest version of POWER ISA. POWER9 is a family of 
-superscalar, multi-threading, symmetric multiprocessors based on the Power 
-ISA. Power ISA is a RISC load/store architecture. It has multiple sets of registers.
-Instructions have a length of 32 bits, with the exception of the VLE (variable-length
-encoding) subset. Most instructions are triadic. Memory operations are strictly  
-load/store, but allow for out-of-order execution. Power ISA has been an industry 
-standard for Open Coherent Accelerator Processor Interface (OpenCAPI) and Open 
-Memory Interface (OMI) architecture-agnostic compute accelerators, or accelerators
-in general. With OpenPOWER joining the linux foundation, the need for an open 
-source hardware-independent POWER ISA simulator has also come up.
+2019. POWER9 is the latest version of POWER ISA. Power ISA is a RISC load/store 
+architecture. It has multiple sets of registers. Instructions have a length of 32 
+bits, with the exception of the VLE (variable-length encoding) subset. Most 
+instructions are triadic (Two sources and one destination). Memory operations are 
+strictly load/store, but allow for out-of-order execution. With OpenPOWER joining 
+the linux foundation, the need for an open source hardware-independent POWER ISA 
+simulator has also come up. The currently existing solution for the given problem
+depends on an actual hardware target board or a ghdl simulator that is relatively
+more tedious to set up and get into. 
 
 # Statement of need
 
 The main goal of the proposed project is to develop a platform independent,
 open source `POWER ISA functional simulator` with minimal hardware requirements
-and aims to provide a virtual environment capable of simulating a reduced POWER
-ISA and associated operations. The simulator will greatly help in developing 
-POWER ISA based solutions by simulating a virtual environment. It also serves 
+and aims to provide a sanbox for executing a reduced POWER ISA instruction set. 
+The applications of proposed simulator would include the ability to test and 
+develop POWER ISA based assembly code. Apart from the mentioned use-case of
+testing and developing assembly code, the software is also capable of  being used
 as a teaching and learning tool for better understanding POWER ISA and how it 
 works. The educational aspect of the simulator is very significant as most of 
 the open source ISAs have a very powerful simulators associated with it. Such a 
-simulator further enables research and advancement in POWER ISA. The proposed 
-tool will simulate POWER ISA as well as provide register and memory access.
+software further enables research and advancement of POWER ISA based applications. 
+The proposed tool will simulate POWER ISA as well as provide register and memory access.
 
 
-We aim to build a system to simulate POWER ISA architecture on a software layer
-which does not rely on a programmed hardware component. This platform independent
-approach aims at providing software to help learn as well as  develop  POWER  ISA
-based applications. With the rise in popularity of hardware accelerators in modern
+We aim to build a system to simulate POWER ISA architecture completely independent of
+the installed system's hardware. Essentially, everything including the memory devices
+will be simulated file objects that are used to serve this purpose. This platform 
+independent approach aims at providing software to help learn as well as develop POWER 
+ISA based applications. With the rise in popularity of hardware accelerators in modern
 applications, an ISA simulator for the said architecture would create an environment
 where the applications can be tested before being deployed to specially designed FPGA
-chips or Hardware components for the acceleration. The process consists of two phases,
-the Assembler development and the Processor Development. The Assembler converts
+chips or Hardware components for their intended purpose. The process consists of two 
+phases, the Assembler development and the Processor Development. The Assembler converts
 instructions to Hex code, handles assembler directives and comments and is a two 
 pass assembler. The Processor simulates instruction execution and executes using a
 python[@pythonlibs] based processor. We use `Argparse`[@cpython] for CLI and `Tkinter`[@cpython] and `cx_Freeze`[@cx_Freeze] for GUI
