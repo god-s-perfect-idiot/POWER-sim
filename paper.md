@@ -35,18 +35,23 @@ bibliography: paper.bib
 # Summary
 
 The `Power ISA`[@manual] is an instruction set architecture (ISA) developed by the 
-`OpenPOWER Foundation`, led by `IBM`. Power ISA is an evolution of the PowerPC
-ISA, created by the mergers of the core `PowerPC ISA` and the optional `Book E` 
-for embedded applications. POWER ISA was made open source by IBM in August 
-2019. POWER9 is the latest version of POWER ISA. Power ISA is a RISC load/store 
-architecture. It has multiple sets of registers. Instructions have a length of 32 
-bits, with the exception of the VLE (variable-length encoding) subset. Most 
-instructions are triadic (Two sources and one destination). Memory operations are 
-strictly load/store, but allow for out-of-order execution. With OpenPOWER joining 
-the linux foundation, the need for an open source hardware-independent POWER ISA 
-simulator has also come up. The currently existing solution for the given problem
-depends on an actual hardware target board or a ghdl simulator that is relatively
-more tedious to set up and get into. 
+`OpenPOWER Foundation`, led by `IBM`. An `Instruction Set Architecture`[@isa] is essentially
+an abstract model or documentation that defines the instructions, data types, features,
+hardware support, etc for a particular hardware device capable of exeucting it. 
+The relevance of an ISA as a whole is that understanding one aids research and
+development in assembly level applications on a specific hardware board. POWER10 or 
+POWER ISA v3.1 is the latest version of POWER ISA. Power ISA is a RISC load/store 
+architecture. It has multiple sets of registers. Instructions have a length of 32  
+bits, with the exception of the VLE (variable-length encoding) subset. Most instructions 
+are triadic(Two sources and one destination). Memory operations are strictly load/store, 
+but allow for out-of-order execution. With OpenPOWER joining the linux foundation, the 
+need for an open source hardware-independent POWER ISA simulator has also come up. POWER
+ISA was made open source by IBM in August 2019. The currently existing solution for the
+given problem depends on an actual hardware target board or a ghdl simulator that 
+is relatively more tedious to set up and get into. As can be inferred, the proposed
+software would be a `hardware simulation project` mainly focusing on providing a 
+software that helps develop micrprocessor assembly code for testing POWER ISA 
+programs and developing applications following its open-sourcing. 
 
 # Statement of need
 
@@ -57,7 +62,10 @@ The applications of proposed simulator would include the ability to test and
 develop POWER ISA based assembly code. Apart from the mentioned use-case of
 testing and developing assembly code, the software is also capable of  being used
 as a teaching and learning tool for better understanding POWER ISA and how it 
-works. The educational aspect of the simulator is very significant as most of 
+works. Simply put, the target audience comprises of research personnel looking to
+test the ISA and learn it as well as developers aiming to test their assembly code. 
+The niche nature of the ISA as well as the lack of a hassle-free open source simulator
+work in favor of the project. The educational aspect of the simulator is very significant as most of 
 the open source ISAs have a very powerful simulators associated with it. Such a 
 software further enables research and advancement of POWER ISA based applications. 
 The proposed tool will simulate POWER ISA as well as provide register and memory access.
@@ -65,14 +73,21 @@ The proposed tool will simulate POWER ISA as well as provide register and memory
 
 We aim to build a system to simulate POWER ISA architecture completely independent of
 the installed system's hardware. Essentially, everything including the memory devices
-will be simulated file objects that are used to serve this purpose. This platform 
-independent approach aims at providing software to help learn as well as develop POWER 
-ISA based applications. With the rise in popularity of hardware accelerators in modern
-applications, an ISA simulator for the said architecture would create an environment
-where the applications can be tested before being deployed to specially designed FPGA
-chips or Hardware components for their intended purpose. The process consists of two 
-phases, the Assembler development and the Processor Development. The Assembler converts
-instructions to Hex code, handles assembler directives and comments and is a two 
+will be simulated file objects that are used to serve this purpose. There are currently 
+two other widely accepted software that simulates POWER ISA; Microwatt[@microwatt] and Power10 Functional
+Simulator[@power10fs]. MicroWatt is an open source tool capable of executing POWER ISA assembly code. 
+But, this software is written in VHDL and relies on a hardware board or a GHDL simulator 
+to execute the code. Simply put, setting the tool up is tedious. Another alternative is 
+Power10 Functional Simulator developed by IBM. The proposed software would be superioer
+due to the closed-source nature of Power10 Functional Simulator. Our platform independent 
+approach aims at providing software to help learn as well as develop POWER ISA based 
+applications. With the rise in popularity of hardware accelerators in modern applications,
+an ISA simulator for the said architecture would create an environment where the applications
+can be tested before being deployed to specially designed FPGA chips or Hardware components
+for their intended purpose. This means that researchers and developers can both test and 
+debug their assembly code before running it on actual hardware board. The process consists 
+of two phases, the Assembler development and the Processor Development. The Assembler 
+converts instructions to Hex code, handles assembler directives and comments and is a two 
 pass assembler. The Processor simulates instruction execution and executes using a
 python[@pythonlibs] based processor. We use `Argparse`[@cpython] for CLI and `Tkinter`[@cpython] and `cx_Freeze`[@cx_Freeze] for GUI
 development. 
@@ -192,6 +207,8 @@ Button to toggle between either devices
 Display content of the register.
 
 #### Load an external File using the File Menu. 
+
+An example assembly code can be found in the file `/simple.s`
 
 For detailed per-method documentation, please refer to [documentation.md](https://github.com/god-s-perfect-idiot/POWER-sim/blob/master/documentation.md)
 
